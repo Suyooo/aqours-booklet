@@ -1,0 +1,83 @@
+\def\songtitle{"MY LIST" to you!}
+\def\songcomment{}
+\def\songlyrics{Aki Hata}
+\def\songwriter{Hara Tomoya}
+\def\songarrange{Ramseeni}
+   
+\ifdefined\COMPLETE
+\else
+	\input{../definitions.tex}
+	\begin{document}
+\fi
+\thispagestyle{song}
+
+{\small
+	This clap pattern repeats throughout most of the song:\\
+	\centerline{\includegraphics[height=0.66cm,keepaspectratio]{images/mylist_clappattern_default.pdf}}
+	Use this pattern for all clap instructions (marked \claptext{green}).\\
+	Alterations are marked \specinsttext{yellow} and described below the lyrics.
+}
+
+\begin{multicols}{2}
+\clapline{Clap Pattern x9}
+
+\claptext{Wakatte to sunechau\\
+Watashi dakara\\
+Chotto matomete mita!\\
+Itsuka deau koibito ni\\
+Tsutaetai koto\\
+"My list" erasou kana?}\\
+
+Mainichi kitto renraku shite ne\\
+Daisuki datte zutto\\
+Kurikaeshi kikasete yo\\
+Itsumo!\\
+
+\claptext{Namae de yonde yo ne\\
+"San" toka tsukenaide yonde ne\\
+Te tsunaide aruite\\
+Hitome ki ni shicha yada} \specinsttext{yo}\\
+
+\claptext{Ienakute damacchau toki wa\\
+Kore o misete amaete} \specinsttext{miru?}\\
+\claptext{Itsuka deau koibito yo\\
+Akirenaide ne\\
+"My love" deai wa doko?}\columnbreak
+
+\claptext{Isogashii tte renpatsu shinaide\\
+Daisuki na kimochi\\
+Ato mawashi sarechattara}\\
+Namida dechau \claptext{yo!}\\
+
+\claptext{Omiyage katte kite\\
+Watashi o oite dekaketara\\
+Tanjoubi oboete\\
+Seiza o shiranakute mo}\\
+
+\clapline{Clap Pattern x8}
+
+\claptext{Daisuki tte kikasete\\
+Itsudemo} itte hoshii janai?\\
+
+\claptext{Madamada aru kedo\\
+Ato wa deatte kara no\\
+Otanoshimi nante ne\\
+Dare nano? Doko nano?\\
+Saa hayaku koko ni kite yo\\
+Saa hayaku kao o misete\\
+Saa hayaku} \specinsttext{koko ni} kite yo!\\
+
+\clapline{Clap Pattern x14}
+\end{multicols}
+
+{\small
+	At \specinsttext{yo}: Use this clap pattern once, then return to the regular one on the next verse.\\
+	\centerline{\includegraphics[height=0.66cm,keepaspectratio]{images/mylist_clappattern_special.pdf}}
+	At \specinsttext{miru}: Continue with the regular pattern, but leave out clap 3 once.\\
+	At \specinsttext{koko ni}: For the finish, disregard the pattern and clap on each syllable.
+}
+
+\ifdefined\COMPLETE
+\else
+	\end{document}
+\fi

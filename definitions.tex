@@ -1,0 +1,219 @@
+\documentclass[10pt,twoside]{extarticle}
+
+\usepackage{xcolor}
+
+\usepackage{graphicx}
+
+\usepackage{multicol}
+
+\usepackage{background}
+
+\usepackage{adjustbox}
+
+\usepackage{ifoddpage}
+
+%\usepackage{showframe}
+
+\usepackage{fontspec}
+\setmainfont{DejaVu Sans}
+\setlength{\lefthyphenmin}{8}
+\setlength{\righthyphenmin}{8}
+
+\ifdefined\bleed
+	\usepackage[paperheight=216mm, paperwidth=151mm, top=2.25cm, bottom=2.8cm, outer=1.1cm, inner=0.8cm,heightrounded,marginparwidth=0cm,marginparsep=0cm]{geometry}
+\else
+	\usepackage[paperheight=210mm, paperwidth=148mm, top=1.95cm, bottom=2.5cm, outer=0.8cm, inner=0.8cm,heightrounded,marginparwidth=0cm,marginparsep=0cm]{geometry}
+\fi
+
+\newcommand{\getdefaultbggraphic}{
+	\ifdefined\nobackground
+	\else
+		\checkoddpage
+		\ifdefined\bleed
+			\ifoddpage
+		   		\includegraphics[trim = 0 0 0 0,clip,width = \paperwidth,height = \paperheight, keepaspectratio]{images/songbackground_right.pdf}
+			\else
+		   		\includegraphics[trim = 0 0 0 0,clip,width = \paperwidth,height = \paperheight, keepaspectratio]{images/songbackground_left.pdf}
+			\fi
+		\else
+			\ifoddpage
+		   		\includegraphics[trim = 0 3mm 3mm 3mm,clip,width = \paperwidth,height = \paperheight, keepaspectratio]{images/songbackground_right.pdf}
+			\else
+		   		\includegraphics[trim = 3mm 3mm 0 3mm,clip,width = \paperwidth,height = \paperheight, keepaspectratio]{images/songbackground_left.pdf}
+			\fi
+		\fi
+	\fi
+}
+
+\setlength{\parskip}{0em} 
+\setlength{\parindent}{0em}
+\setlength{\columnsep}{0.3cm}
+\setlength{\columnseprule}{0.5pt}
+
+\usepackage{fancyhdr}
+\fancypagestyle{song} {
+	\fancyhead[L]{\vspace*{1em}\makesongheader}
+	\fancyhead[R]{\makesongcredits}
+	\fancyfoot{}
+	\fancyfoot[C]{\makebox[\textwidth][c]{--- {\thepage} ---}}
+	\fancyhfoffset[r]{\dimexpr+0.2cm\relax}
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{0pt}
+	\setlength{\headheight}{35pt}
+	\backgroundsetup{opacity = 1, scale = 1, angle = 0,
+	   contents = {\getdefaultbggraphic}}
+}
+\fancypagestyle{default} {
+	\fancyhead{}
+	\fancyhead[L]{\ifdefined\pagetitletext\vspace*{1em}\pagetitle{\pagetitletext}\\\fi}
+	\fancyfoot{}
+	\fancyfoot[C]{\makebox[\textwidth][c]{--- {\thepage} ---}}
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{0pt}
+	\setlength{\headheight}{35pt}
+	\backgroundsetup{opacity = 1, scale = 1, angle = 0,
+	   contents = {\getdefaultbggraphic}}
+}
+\fancypagestyle{nopagenum} {
+	\fancyhead{}
+	\fancyfoot{}
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{0pt}
+	\setlength{\headheight}{35pt} 
+}
+\fancypagestyle{empty} {
+	\fancyhead{}
+	\fancyfoot{}
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{0pt}
+	\setlength{\headheight}{0pt} 
+	\backgroundsetup{contents = {}}
+}
+\pagestyle{default}
+
+\title{Aqours 3rd Live WONDERFUL STORIES - Unofficial Information Booklet}
+\author{Suyooo}
+\date{July 15, 2018}
+
+\newcommand{\fullimagepage}[2]{
+	\newpage
+	\thispagestyle{nopagenum}
+	\ifdefined\nobackground
+		\backgroundsetup{contents = {}}
+		\vspace*{\fill}
+		\vspace{-5em}
+		\begin{center}#2\end{center}
+		\vspace{\fill}
+	\else
+		\backgroundsetup{opacity = 1, scale = 1, angle = 0,
+			contents = {
+				\ifdefined\bleed
+					\includegraphics[trim = 0 0 0 0,
+					width = \paperwidth,
+					height = \paperheight, keepaspectratio]
+					{images/#1.png}
+				\else
+					\includegraphics[trim = 0 3mm 3mm 3mm,
+					width = \paperwidth,
+					height = \paperheight, keepaspectratio]
+					{images/#1.png}
+				\fi
+			}}
+		~\vfill
+	\fi
+	\newpage
+	\backgroundsetup{opacity = 1, scale = 1, angle = 0,
+	   contents = {\getdefaultbggraphic}}
+}
+
+\definecolor{chika}{HTML}{F0A20B}
+\definecolor{riko}{HTML}{E9A9E8}
+\definecolor{kanan}{HTML}{13E8AE}
+\definecolor{dia}{HTML}{F23B4C}
+\definecolor{you}{HTML}{49B9F9}
+\definecolor{yohane}{HTML}{898989}
+\definecolor{hanamaru}{HTML}{E6D617}
+\definecolor{mari}{HTML}{AE58EB}
+\definecolor{ruby}{HTML}{FB75E4}
+\definecolor{aqours}{HTML}{3299E9}
+\definecolor{sarah}{HTML}{3BB7EB}
+\definecolor{leah}{HTML}{98ADD8}
+
+\definecolor{clap}{HTML}{00CC22}
+\definecolor{special}{HTML}{DDAA00}
+
+\usepackage{shadowtext}
+\shadowoffset{2pt}
+\shadowcolor{black!5!white}
+
+% ALTERNATING LETTER COLORS from https://tex.stackexchange.com/a/285974
+\ExplSyntaxOn
+\NewDocumentCommand{\colorstring}{O{aqours!90!white,aqours!95!black}+m}{%
+  \clist_set:Nn \l_tmpa_clist {#1}%
+  \int_zero:N \l_tmpa_int%
+  \str_set:Nx \l_tmpa_str {#2}%
+  \int_step_inline:nnnn {1} {1} {\str_count:N \l_tmpa_str } {%
+    \str_case_x:nnF {\str_item:Nn \l_tmpa_str {##1}} {%
+      {\space}{\space}
+    }{%
+      \int_compare:nNnTF {\l_tmpa_int } < {\clist_count:N \l_tmpa_clist } {
+        \int_incr:N \l_tmpa_int
+      }{%
+        \int_set:Nn \l_tmpa_int {\c_one}
+      }
+      \textcolor{\clist_item:Nn \l_tmpa_clist {\l_tmpa_int }}{\hspace{-0.43em}\shadowtext{\str_item:Nn \l_tmpa_str {##1}}}
+    }
+  }
+}
+\ExplSyntaxOff
+
+\newcommand{\call}[1]{{\textbf{\footnotesize{\textcolor{red}{(#1)}}}}}
+\newcommand{\calltext}[1]{{\textbf{\textcolor{red}{#1}}}}
+\newcommand{\callside}[1]{\hfill\call{#1}}
+\newcommand{\callline}[1]{\vspace{-0.83em}\call{#1}\vspace{0.5em}}
+\newcommand{\clap}[1]{{\textbf{\footnotesize{\textcolor{clap}{(#1)}}}}}
+\newcommand{\clapline}[1]{\vspace{-0.83em}\clap{#1}\vspace{0.5em}}
+\newcommand{\claptext}[1]{{\textbf{\textcolor{clap}{#1}}}}
+\newcommand{\specinst}[1]{{\textbf{\footnotesize{\textcolor{special}{(#1)}}}}}
+\newcommand{\specinstline}[1]{\vspace{-0.83em}\clap{#1}\vspace{0.5em}}
+\newcommand{\specinsttext}[1]{{\textbf{\textcolor{special}{#1}}}}
+\newcommand{\sing}[1]{{\textbf{\textcolor{aqours}{#1}}}}
+\newcommand{\memberbg}[2]{\setlength{\fboxsep}{0pt}\colorbox{#1!30}{\makebox[\linewidth][l]{\strut{#2}}}}
+\newcommand{\memberbgnote}[3]{{\footnotesize{\textcolor{#1}{\textbf{#3}}}}\\\memberbg{#1}{#2}}
+\newcommand{\memberbgside}[3]{\memberbg{#1}{\strut{#2\hfill{\footnotesize{\textcolor{#1}{\textbf{#3}}}}}}}
+
+
+\newcommand{\pagetitle}[1]{%
+	\shadowcolor{aqours!25!white}%
+	{\LARGE\textbf{\strut{\colorstring{#1}}}}%
+	\shadowcolor{black!5!white}%
+}
+
+\newcommand{\cancel}[2]{%
+    \tikz[baseline=(tocancel.base)]{
+        \node[inner sep=0pt,outer sep=0pt] (tocancel) {#1};
+        \node[red] at (0,0.66) {#2};
+        \draw[line width=1mm, red] (tocancel.south west) -- (tocancel.north east);
+    }%
+}%
+
+\def\changemargin#1#2{\list{}{\leftmargin#1\rightmargin#2}\item[]}
+\let\endchangemargin=\endlist
+
+\newcommand{\makesongheader}{
+	\pagetitle{\songtitle}\\
+	{\small\color{black!40!aqours}{\textbf{\songcomment}}}
+}
+\newcommand{\makesongcredits}{
+	\adjustbox{scale={0.85}{1}}{\scriptsize{
+		\color{black!40!aqours}{Writer \textbf{\songwriter} Lyrics \textbf{\songlyrics} Arrangement \textbf{\songarrange}}
+	}}
+}
+
+\usepackage[hidelinks]{hyperref}
+
+\ifdefined\COMPLETE
+	\graphicspath{{./}}
+\else
+	\graphicspath{{../}}
+\fi
